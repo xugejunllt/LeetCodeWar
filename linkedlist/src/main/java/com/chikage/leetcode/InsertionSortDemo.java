@@ -15,6 +15,10 @@ import java.util.Arrays;
  * 注意：本内容仅限于上海非码科技内部传阅，禁止外泄以及用于其他的商业目的
  */
 public class InsertionSortDemo {
+    /**
+     * 插入排序,稳定排序
+     * @param a
+     */
     public static void insertionSort(int[] a) {
         int n = a.length;
         if (n <= 1) return;
@@ -23,18 +27,42 @@ public class InsertionSortDemo {
             int j = i - 1;
             for (; j >= 0; j--) {
                 if (a[j] > value) {
-                    a[j + 1] = a[j];
+                    a[j + 1] = a[j]; //数据移动
                 }else {
-                    break;
+                    break; //找到插入的位置就终止循环
                 }
             }
-            a[j + 1] = value;
+            a[j + 1] = value; //找到插入的位置插入数据
+        }
+    }
+
+    /**
+     * 希尔排序,插入排序的高效版,但是是非稳定排序
+     * @param array
+     */
+    public static void shellSort(int[] array) {
+        int number = array.length / 2;
+        int i;
+        int j;
+        int temp;
+        while (number >= 1) {
+            for (i = number; i < array.length; i++) {
+                temp = array[i];
+                j = i - number;
+                while (j >= 0 && array[j] > temp) { // 大于号，从小到大排序；小于号，倒序
+                    array[j + number] = array[j];
+                    j = j - number;
+                }
+                array[j + number] = temp;
+            }
+            number = number / 2;
         }
     }
 
     public static void main(String[] args) {
         int[] data = {2, 5, 6, 8, 31, 45, 1, 13, 42};
-        insertionSort(data);
+//        insertionSort(data);
+        shellSort(data);
         Arrays.stream(data).forEach(System.out::println);
     }
 }
