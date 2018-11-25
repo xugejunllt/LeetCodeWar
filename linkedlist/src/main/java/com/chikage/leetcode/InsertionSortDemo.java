@@ -40,8 +40,8 @@ public class InsertionSortDemo {
      * 希尔排序,插入排序的高效版,但是是非稳定排序
      * @param array
      */
-    public static void shellSort(int[] array) {
-        int number = array.length / 2;
+    public static void shellSort(int[] array,int t) {
+        int number = array.length / t;
         int i;
         int j;
         int temp;
@@ -60,9 +60,11 @@ public class InsertionSortDemo {
     }
 
     public static void main(String[] args) {
-        int[] data = {2, 5, 6, 8, 31, 45, 1, 13, 42};
+        int[] data = {2, 5, 6, 8, 31, 45, 1, 13, 42,324,2,1,141,435,13,123,25,123,5,11,424,46,47,5,8,6,8686,8};
 //        insertionSort(data);
-        shellSort(data);
+        long start = System.currentTimeMillis();
+        shellSort(data,5);
         Arrays.stream(data).forEach(System.out::println);
+        System.out.println("时间:"+(System.currentTimeMillis()-start)+ "ms");
     }
 }
