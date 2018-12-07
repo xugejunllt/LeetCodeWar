@@ -47,15 +47,15 @@ public class ReverseLinkedList {
 
     public static Node reverse(Node<Integer> list) {
         Node head = null;
-        Node pre = null;
+        Node tmp = null;
         Node p = list;
         while (p != null) {
             Node next = p.next;
             if (next == null) {
                 head = p;
             }
-            p.next = pre;
-            pre = p;
+            p.next = tmp;
+            tmp = p;
             p = next;
         }
         return head;
