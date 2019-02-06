@@ -11,8 +11,6 @@ import java.util.Arrays;
  * @author: chikage(chikagelin @ 163.com)
  * @date: 2018/11/25 11:55 PM
  * @version: v1.0
- * @copyright: 2018 www.freemud.cn Inc. All rights reserved.
- * 注意：本内容仅限于上海非码科技内部传阅，禁止外泄以及用于其他的商业目的
  */
 public class MergeSort {
 
@@ -23,7 +21,7 @@ public class MergeSort {
 
     private static void mergesortInternally(int[] a, int p, int r) {
         if (p >= r) return;
-        int q = p + (r - p) / 2;
+        int q = p + ((r - p) >>1);
         //分而治之
         mergesortInternally(a, p, q);
         mergesortInternally(a, q + 1, r);
@@ -66,6 +64,7 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] data = {2, 5, 6, 8, 31, 45, 1, 13, 42,324,2,1,141,435,13,123,25,123,5,11,424,46,47,5,8,6,8686,8};
+//        int[] data = {2, 5, 6, 8, 31,45};
 //        insertionSort(data);
         long start = System.currentTimeMillis();
         mergeSort(data,data.length);

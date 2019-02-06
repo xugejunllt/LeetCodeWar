@@ -17,30 +17,32 @@ import java.util.Arrays;
 public class InsertionSort {
     /**
      * 插入排序,稳定排序
+     *
      * @param a
      */
     public static void insertionSort(int[] a) {
         int n = a.length;
-        if (n <= 1) return;
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i < n; ++i) {
             int value = a[i];
             int j = i - 1;
-            for (; j >= 0; j--) {
+            if (n <= 1) return;
+            for (; j >= 0; --j) { //查找插入的位置
                 if (a[j] > value) {
-                    a[j + 1] = a[j]; //数据移动
-                }else {
-                    break; //找到插入的位置就终止循环
+                    a[j + 1] = a[j]; //数据迁移
+                } else {
+                    break; //如果找到，则退出当前循环
                 }
             }
-            a[j + 1] = value; //找到插入的位置插入数据
+            a[j + 1] = value; //指定位置插入目标值
         }
     }
 
     /**
      * 希尔排序,插入排序的高效版,但是是非稳定排序
+     *
      * @param array
      */
-    public static void shellSort(int[] array,int t) {
+    public static void shellSort(int[] array, int t) {
         int number = array.length / t;
         int i;
         int j;
@@ -60,11 +62,12 @@ public class InsertionSort {
     }
 
     public static void main(String[] args) {
-        int[] data = {2, 5, 6, 8, 31, 45, 1, 13, 42,324,2,1,141,435,13,123,25,123,5,11,424,46,47,5,8,6,8686,8};
+        int[] data = {2, 5, 6, 8, 31, 45, 1, 13, 42, 324, 2, 1, 141, 435, 13, 123, 25, 123, 5, 11, 424, 46, 47, 5, 8, 6, 8686, 8};
 //        insertionSort(data);
         long start = System.currentTimeMillis();
-        shellSort(data,5);
+//        shellSort(data,5);
+        insertionSort(data);
         Arrays.stream(data).forEach(System.out::println);
-        System.out.println("时间:"+(System.currentTimeMillis()-start)+ "ms");
+        System.out.println("时间:" + (System.currentTimeMillis() - start) + "ms");
     }
 }

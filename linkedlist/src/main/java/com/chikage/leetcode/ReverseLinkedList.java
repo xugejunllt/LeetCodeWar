@@ -9,7 +9,6 @@ package com.chikage.leetcode;
  * @author: chikage(chikagelin @ 163.com)
  * @date: 2018/11/18 11:56 PM
  * @version: v1.0
- * @copyright: 2018 www.freemud.cn Inc. All rights reserved.
  * */
 public class ReverseLinkedList {
     public static class Node<E> {
