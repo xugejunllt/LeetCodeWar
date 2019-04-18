@@ -1,7 +1,5 @@
 package com.chikage.leetcode;
 
-import java.util.Arrays;
-
 /**
  * All rights Reserved, Designed By www.freemud.cn
  *
@@ -14,6 +12,15 @@ import java.util.Arrays;
  */
 public class BubbleSort {
 
+    private String a;
+
+    public void setA(String a) {
+        this.a = a;
+    }
+
+    public String getA() {
+        return a;
+    }
 
     public static void bubbleSort(int[] a) {
         int n = a.length;
@@ -34,11 +41,20 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] data = {2, 5, 6, 8, 31, 45, 1, 13, 42,324,2,1,141,435,13,123,25,123,5,11,424,46,47,5,8,6,8686,8};
-//        insertionSort(data);
-        long start = System.currentTimeMillis();
-        bubbleSort(data);
-        Arrays.stream(data).forEach(System.out::println);
-        System.out.println("时间:"+(System.currentTimeMillis()-start)+ "ms");
+//        int[] data = {2, 5, 6, 8, 31, 45, 1, 13, 42,324,2,1,141,435,13,123,25,123,5,11,424,46,47,5,8,6,8686,8};
+////        insertionSort(data);
+//        long start = System.currentTimeMillis();
+//        bubbleSort(data);
+//        Arrays.stream(data).forEach(System.out::println);
+//        System.out.println("时间:"+(System.currentTimeMillis()-start)+ "ms");
+        BubbleSort a = new BubbleSort();
+        a.setA("1");
+
+        BubbleSort b = new BubbleSort();
+        b.setA("2");
+
+
+        System.out.println(a.getA());
+        System.out.println(b.getA());
     }
 }
